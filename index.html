@@ -274,6 +274,92 @@
         }
         
         /* Contact Section */
+        .contact-form-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #8B4513;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8B4513;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit-btn {
+            width: 100%;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+        
+        .form-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+        
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
         .contact {
             padding: 5rem 2rem;
             background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
@@ -380,6 +466,15 @@
                 flex-direction: column;
                 gap: 2rem;
             }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -481,10 +576,10 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="IMG-20251013-WA0005.jpg" alt="Indoor living space with quality masonry work overlay - Luis Rojo Masonry">
+                    <img src="project1.jpg" alt="Outdoor living space with quality masonry work - Luis Rojo Masonry">
                     <div class="portfolio-caption">
                         <strong>Quality Craftsmanship</strong><br>
-                        Concrete that looks like tile.
+                        Precise paver patterns
                     </div>
                 </div>
                 <div class="portfolio-item">
@@ -511,7 +606,7 @@
             <h2 class="section-title">About Luis Rojo Masonry</h2>
             <div class="about-content">
                 <p>
-                    With over 30 years of experience serving the Tucson, Arizona area, Luis Rojo Masonry 
+                    With over two decades of experience serving the Tucson, Arizona area, Luis Rojo Masonry 
                     has built a reputation for exceptional craftsmanship and customer satisfaction. We take 
                     pride in every project, whether it's a small repair or a large commercial installation.
                 </p>
@@ -540,12 +635,71 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Request Your FREE Estimate</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+                Fill out the form below and we'll get back to you within 24 hours!
+            </p>
+            
+            <form id="contactForm" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(520) 555-1234">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="Tucson">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Type of Service Needed *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service...</option>
+                        <option value="Brick & Block Work">Brick & Block Work</option>
+                        <option value="Stone Work">Stone Work</option>
+                        <option value="Repairs & Restoration">Repairs & Restoration</option>
+                        <option value="Outdoor Features (Patio, Walkway)">Outdoor Features (Patio, Walkway)</option>
+                        <option value="Commercial Masonry">Commercial Masonry</option>
+                        <option value="Custom Project">Custom Project</option>
+                        <option value="Not Sure / Multiple Services">Not Sure / Multiple Services</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Project Details *</label>
+                    <textarea id="message" name="message" required rows="5" placeholder="Please describe your project, timeline, and any specific requirements..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button form-submit-btn">
+                    Send My Free Estimate Request
+                </button>
+                
+                <div id="formMessage" class="form-message"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Or Contact Us Directly</h2>
             <p style="font-size: 1.3rem; margin-bottom: 2rem;">
-                Call us today for your FREE estimate or reach out through any of our contact methods below
+                Prefer to call? We're ready to help you right now!
             </p>
             <div class="contact-info">
                 <div class="contact-item">
@@ -560,7 +714,7 @@
                 </div>
                 <div class="contact-item">
                     <i>📧</i>
-                    <strong>Luisrojosmasonry@gmail.com </strong>
+                    <strong>Email</strong>
                     <span>Contact via Facebook</span>
                 </div>
                 <div class="contact-item">
@@ -594,6 +748,64 @@
                     });
                 }
             });
+        });
+        
+        // Form submission to Google Sheets
+        const form = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzkUE6qZgXq8n8jJ7MU1sWrp5ppDPWpqsQCcpTCqEpF9KpK6tgyHuIvU0_uDnMzXm5Y/exec';
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                city: document.getElementById('city').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString()
+            };
+            
+            // Show loading message
+            formMessage.textContent = 'Sending your request...';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'block';
+            formMessage.style.background = '#d1ecf1';
+            formMessage.style.color = '#0c5460';
+            
+            try {
+                // Send to Google Sheets
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                // Show success message
+                formMessage.textContent = '✅ Thank you! We received your request and will contact you within 24 hours.';
+                formMessage.className = 'form-message success';
+                
+                // Reset form
+                form.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+                
+            } catch (error) {
+                // Show error message
+                formMessage.textContent = '❌ Oops! Something went wrong. Please call us at (520) 481-7579 instead.';
+                formMessage.className = 'form-message error';
+            }
         });
     </script>
 </body>
